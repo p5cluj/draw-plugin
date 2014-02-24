@@ -1,0 +1,20 @@
+form fieldset .field {
+	width: 350px;
+}
+
+input,select {
+	float:right;
+}
+
+select[multiple] {
+	width:100px;
+}
+
+input[type="file"] {
+	float: none;
+	width:250px;
+}
+
+input {
+	width: 200px;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drawing App</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"/>
+	<link rel="stylesheet" href="css/themes/ui-lightness/jquery-ui-1.10.4.custom.css" />	
+	<link rel="stylesheet" href="css/jquery.svg.css" />	
+	<script src="js/vendor/jquery-1.11.0.min.js"></script>
+	<script src="js/vendor/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/vendor/underscore.js"></script>
+	<script src="js/vendor/jquery.svg.js"></script>
+	<script src="js/vendor/bootstrap.js"></script>
+</head>
+<body>
+	<button id="new-shape" title="Create new CSV" class="btn btn-primary">New</button>
+	<button id="open-shape" title="Open existing CSV" class="btn btn-primary">Open</button>
+	<div id="drawing-form"></div>  
+ 	<script type="text/template" class="new-form">
+	 	<form id="new-drawing-form" class="well">
+	 		<fieldset>
+			<div class="field">																	
+			    <label for="title">Title</label>
+			    <input type="text" name="title" id="title" class="text ui-widget-content ui-corner-all span3" required>
+			</div>
+			<div class="field">
+			    <label for="width">Width</label>
+			    <input type="number" name="width" id="width" value="" class="text ui-widget-content ui-corner-all span3" required>
+			</div>
+			<div class="field">
+			    <label for="height">Height</label>
+			    <input type="number" name="height" id="height" value="" class="text ui-widget-content ui-corner-all" required>
+			</div>
+			<div class="field">
+			    <label for="objectSelector">ObjectSelector</label>
+			    <select name="objectSelector" class="objectSelector" class="text ui-widget-content ui-corner-all">
+			    	<option value="">None</option>
+			    	<option value="circle">Circle</option>
+			    	<option value="line">Line</option>
+		    	</select>
+		    </div>
+		    <div class="field">
+			    <label for="objects">Objects</label>
+			    <select name="objects" class="objects" class="text ui-widget-content ui-corner-all" size="5" multiple>			    
+		    	</select>
+		    </div>		    
+		    <button type="button" title="Preview" class="preview btn">Preview</button>
+		    <button type="submit" title="Save" class="save btn btn-primary">Save</button>
+		    <button type="button" title="Cancel" class="cancel btn">Cancel</button>
+		    </fieldset>
+	  	</form>
+	 </script>
+ 	 <script type="text/template" class="open-form">
+	 	<form id="open-drawing-form" method="post" action="draw/open.php" class="well">
+		  <fieldset>
+		  		<input name="file" type="file" class="file btn" required></input>
+ 			    <button type="submit" title="Save" class="save btn btn-primary">Save</button>
+		    	<button type="button" title="Cancel" class="cancel btn btn-primary">Cancel</button>
+		  </fieldset>
+	  	</form>
+	 </script>
+ 	 <script type="text/template" class="circle-form-template">
+ 	 	<form id="new-shape-form" class="well ">
+		  	<fieldset>
+		  		<div class="field">
+		  		 	<label for="x">X</label>
+			    	<input type="number" name="x" id="x-axis" class="text ui-widget-content ui-corner-all" required>
+		    	</div>
+		    	<div class="field">
+			    	<label for="y">Y</label>
+			    	<input type="number" name="y" id="x-axis" class="text ui-widget-content ui-corner-all"required>
+		    	</div>
+		    	<div class="field">
+			    	<label for="radius">Radius</label>
+			    	<input type="number" name="radius" id="radius" class="text ui-widget-content ui-corner-all" required>
+		    	</div>
+		    	<div class="field">
+			    	<label for="color">Color</label>
+			    	<input type="color" name="color" id="color" class="text ui-widget-content ui-corner-all" value="#000000">
+			    </div>
+		    	<button type="submit" class="btn btn-primary addObject">AddObject</button>
+		  	</fieldset>	
+		</form>
+	 </script>
+  	 <script type="text/template" class="line-form-template">
+  	 	<form id="new-shape-form" class="well">
+		  	<fieldset>
+		  		<div class="field">
+		  		 	<label for="x1">X1</label>
+			    	<input type="number" name="x1" id="x1-axis" class="text ui-widget-content ui-corner-all" required>
+			    </div>
+			    <div class="field">
+		  		 	<label for="y1">Y1</label>
+			    	<input type="number" name="y1" id="y1-axis" class="text ui-widget-content ui-corner-all" required>
+			    </div>
+			    <div class="field">
+			    	<label for="x2">X2</label>
+			    	<input type="number" name="x2" id="x2-axis" class="text ui-widget-content ui-corner-all" required>
+			    </div>
+			    <div class="field">
+			    	<label for="y2">Y2</label>
+			    	<input type="number" name="y2" id="y2-axis" class="text ui-widget-content ui-corner-all" required>	   	
+			    </div>
+			    <div class="field">			    
+			    	<label for="color">Color</label>
+			    	<input type="color" name="color" id="color" class="text ui-widget-content ui-corner-all" value="#000000">
+			    </div>
+		    	<button type="submit" class="btn btn-primary addObject">AddObject</button>
+		  	</fieldset>	
+		</form>
+	 </script>
+	<script type="text/javascript" src="js/jquery.drawing.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
